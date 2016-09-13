@@ -1,0 +1,21 @@
+module.exports = {
+  app: './src/index',
+  vendor: [
+    'bootstrap',
+    'isomorphic-fetch',
+    'leaflet',
+    'lodash',
+    'moment',
+    'moment-duration-format',
+    'react',
+    'react-bootstrap',
+    'react-dom',
+    'react-leaflet',
+    'react-leaflet-fullscreen',
+    'react-redux',
+    'react-router',
+    'redux',
+    'redux-logger',
+    'redux-thunk',
+  ],
+}
