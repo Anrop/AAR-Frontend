@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 export default class Missions extends Component {
   renderWorldName (mission) {
     const { worldsByName } = this.props
-    const world = worldsByName[mission.world.toLowerCase()]
+    const world = worldsByName[mission.world]
 
     if (!world) {
       return (

@@ -140,7 +140,7 @@ function mapStateToProps (state, ownProps) {
   let world = null
   if (missions.missionsById && missions.missionsById[id]) {
     mission = missions.missionsById[id]
-    world = worldsByName[mission.world.toLowerCase()]
+    world = worldsByName[mission.world]
   }
 
   return {
