@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { Map, LayersControl, LayerGroup, TileLayer } from 'react-leaflet'
-import { LatLngBounds } from 'leaflet'
+import { LatLngBounds, TileLayer as LeafletTileLayer } from 'leaflet'
+import MiniMap from 'leaflet-minimap'
 import { ArmaMarkers } from './ArmaMarkers'
 import { ArmaProjectiles } from './ArmaProjectiles'
 
@@ -17,6 +18,9 @@ export default class ArmaMap extends Component {
     const point1 = map.unproject([0, offset], world.size.zoom)
     const point2 = map.unproject([world.size.width, world.size.height + offset], world.size.zoom)
     map.setMaxBounds(new LatLngBounds(point1, point2))
+
+    const tileLayer = new LeafletTileLayer(world.layers[0].url, { bounds: tileLayerbounds });
+    new MiniMap(tileLayer, { autoToggleDisplay: true, zoomLevelFixed: 0 }).addTo(map)
   }
 
   getChildContext () {
