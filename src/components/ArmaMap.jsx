@@ -12,10 +12,11 @@ const scaledZoom = 2
 export default class ArmaMap extends Component {
   componentDidMount () {
     const { world } = this.props
-    var map = this.refs.map.leafletElement
-    var southWest = map.unproject([0, 0], world.size.zoom)
-    var northEast = map.unproject([world.size.width, world.size.height], world.size.zoom)
-    map.setMaxBounds(new LatLngBounds(southWest, northEast))
+    const map = this.refs.map.leafletElement
+    const offset = Math.pow(2, Math.ceil(Math.log2(world.size.height))) - world.size.height
+    const point1 = map.unproject([0, offset], world.size.zoom)
+    const point2 = map.unproject([world.size.width, world.size.height + offset], world.size.zoom)
+    map.setMaxBounds(new LatLngBounds(point1, point2))
   }
 
   getChildContext () {

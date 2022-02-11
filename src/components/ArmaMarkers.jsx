@@ -7,12 +7,13 @@ export class ArmaMarker extends React.Component {
   render () {
     const { className, markerSize, name, rotation, x, y } = this.props
     const { map, world } = this.context
+    const offset = Math.pow(2, Math.ceil(Math.log2(world.size.height))) - world.size.height
 
     return (
       <RotationMarker
         className={className}
         markerSize={markerSize}
-        position={map.unproject([x, y], world.size.zoom)}
+        position={map.unproject([x, y + offset], world.size.zoom)}
         rotation={rotation}
         title={name}
       >
