@@ -6,9 +6,10 @@ export class ArmaProjectile extends React.Component {
   render () {
     const { positions, color, weight } = this.props
     const { map, world } = this.context
+    const offset = Math.pow(2, Math.ceil(Math.log2(world.size.height))) - world.size.height
 
     const projectedPositions = positions.slice(-2).map(function (position) {
-      return map.unproject([position.x, position.y], world.size.zoom)
+      return map.unproject([position.x, position.y + offset], world.size.zoom)
     })
 
     return (
