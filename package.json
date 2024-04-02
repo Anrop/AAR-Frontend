@@ -19,7 +19,7 @@
     "isomorphic-fetch": "^3.0.0",
     "jquery": "^3.5.1",
     "leaflet": "^1.7.1",
-    "moment": "^2.29.1",
+    "moment": "^2.29.4",
     "moment-duration-format": "^2.3.2",
     "prop-types": "^15.6.0",
     "react": "^17.0.1",
